@@ -54,7 +54,7 @@ func (a *AuthHandlers) Login(ctx *gin.Context) {
 		response.InternalServerError("Failed to login", err.Error())
 		return
 	}
-	if result.Email == "" {
+	if result == (models.UserRes{}) {
 		response.BadRequest("Email or password is incorrect", nil)
 		return
 	}
